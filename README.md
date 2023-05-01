@@ -1,5 +1,5 @@
-# online_tutor_app
-
+# Stute
+An Android Application which brings the student and teacher at one common platform. It is developed in Flutter which uses dart as the coding language. For the backend we have used Google Firebase.
 A new Flutter project.
 
 ## Getting Started
