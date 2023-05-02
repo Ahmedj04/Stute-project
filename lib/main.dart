@@ -37,10 +37,6 @@ class MyApp extends StatelessWidget {
       routes: {
         'phone': (context) => MyPhone(),
         'verify': (context) => MyVerify(),
-
-        // 'phone2': (context) => MyPhone(),
-        // 'verify2': (context) => MyVerify(),
-
         'Homepage': (context) => HomePage(),
       },
       home: StreamBuilder<User?>(
