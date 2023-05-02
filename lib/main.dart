@@ -24,15 +24,12 @@ class MyApp extends StatelessWidget {
       title: 'STUTE',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // fontFamily:  'times new roman',
-        // primarySwatch: Colors.blue,
         appBarTheme:AppBarTheme(
             elevation: 1,
             color: Colors.white,
         ),
         textTheme: TextTheme(
-
-        )
+        ),
       ),
       routes: {
         'phone': (context) => MyPhone(),

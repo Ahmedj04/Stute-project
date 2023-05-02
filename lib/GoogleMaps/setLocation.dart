@@ -57,7 +57,7 @@ class _SetLocationState extends State<SetLocation>{
                 height: 10,
               ),
               Text(
-                "Do you want to share your locations with Students!",
+                "Do you want to share your location!",
                 style: TextStyle(
                   fontSize: 16,
                 ),

@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:geocoding/geocoding.dart' as geo;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:online_tutor_app/firebase_services.dart';
-
 import '../Homepage.dart';
 
 class CustomGoogleMap extends StatefulWidget {
@@ -40,10 +38,39 @@ class _GoogleMapState extends State<CustomGoogleMap> {
     _location.onLocationChanged.listen((event) {
       latitude = event.latitude;
       longitude = event.longitude;
-      addMarker('text', LatLng(event.latitude!, event.longitude!));
-      controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-          target: LatLng(event!.latitude!, event!.longitude!), zoom: 15)));
+      addMarker(
+        'text',
+        LatLng(event.latitude!, event.longitude!),
+      );
+      controller.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: LatLng(event!.latitude!, event!.longitude!),
+            zoom: 15,
+          ),
+        ),
+      );
     });
+  }
+
+  addMarker(String id, LatLng location) async {
+    List<geo.Placemark> placemark = await geo.placemarkFromCoordinates(
+        location.latitude, location.longitude);
+    setState(() {
+      address = placemark.reversed.last.street.toString() +
+          ", " +
+          placemark.reversed.last.locality.toString();
+    });
+    var marker = Marker(
+      markerId: MarkerId(id),
+      position: location,
+      infoWindow: InfoWindow(
+        title: 'Your Current location',
+        snippet: address,
+      ),
+    );
+    _markers[id] = marker;
+    setState(() {});
   }
 
   @override
@@ -97,7 +124,6 @@ class _GoogleMapState extends State<CustomGoogleMap> {
                               'Latitude': value.latitude,
                               'Longitude': value.longitude,
                               'Address': address,
-                              // 'address':address,
                             }).whenComplete(() => {
                                       EasyLoading.showSuccess('Location Saved'),
                                       // Navigator.of(context).pop()
@@ -108,7 +134,7 @@ class _GoogleMapState extends State<CustomGoogleMap> {
                                               HomePage(),
                                         ),
                                         (Route<dynamic> route) => false,
-                                      )
+                                      ),
                                     }),
                             print(value.latitude),
                             print(value.longitude),
@@ -128,25 +154,5 @@ class _GoogleMapState extends State<CustomGoogleMap> {
         ),
       ),
     );
-  }
-
-  addMarker(String id, LatLng location) async {
-    List<geo.Placemark> placemark = await geo.placemarkFromCoordinates(
-        location.latitude, location.longitude);
-    setState(() {
-      address = placemark.reversed.last.street.toString() +
-          ", " +
-          placemark.reversed.last.locality.toString();
-    });
-    var marker = Marker(
-        markerId: MarkerId(id),
-        position: location,
-        infoWindow: InfoWindow(
-            // title: 'Title of the  place',
-            // snippet: 'Some description of the place',
-            title: 'Your Current location',
-            snippet: address));
-    _markers[id] = marker;
-    setState(() {});
   }
 }
