@@ -41,7 +41,6 @@ class Search_Screen extends SearchDelegate{
             return Text('Something went wrong', style: style,);
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
-            // return Text("Loading...");
             return Center(child: CircularProgressIndicator());
           }
           if(snapshot.data!.docs.where(
@@ -62,20 +61,16 @@ class Search_Screen extends SearchDelegate{
 
                     final String title=data.get('Title');
                     final String description=data['Description'];
-                    // final String description=data['Description'];
                     return Card(
-                      // color: const Color(0xffbac7d3),
                       child: ListTile(
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => PostDetailsScreen(id: data['id'])),
                           );
-                          // Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, child: PostDetailsScreen(id: (data['id']) ,)));
 
                         },
                         contentPadding: EdgeInsets.all(10),
                         title: Text(title,style: style,),
                         subtitle: Text(description ,style: styledes,),
-                        // shape: ,
                       ),
                     );
                   })

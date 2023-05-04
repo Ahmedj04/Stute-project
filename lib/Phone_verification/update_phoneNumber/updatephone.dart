@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:online_tutor_app/Phone_verification/update_phoneNumber/updateverify.dart';
-import 'package:online_tutor_app/Phone_verification/Register_phoneNumber/verify.dart';
-import 'package:online_tutor_app/edit_info.dart';
 
 class UpdateMyPhone extends StatefulWidget {
    UpdateMyPhone({Key? key}) : super(key: key);
@@ -19,14 +17,8 @@ class UpdateMyPhone extends StatefulWidget {
 
 class _UpdateMyPhoneState extends State<UpdateMyPhone> {
 
-  // TextEditingController countryCode = TextEditingController();
-
   @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   countryCode.text = "+91";
-  //   super.initState();
-  // }
+
   void initState() {
     // TODO: implement initState
     UpdateMyPhone.countryCode.text= "+91";
@@ -43,12 +35,6 @@ class _UpdateMyPhoneState extends State<UpdateMyPhone> {
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
-            // Navigator.pushReplacement(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (BuildContext context) => Edit_info_screen(),
-            //   ),
-            // );
             },
           icon: Icon(
             Icons.arrow_back_ios_rounded,
@@ -64,11 +50,7 @@ class _UpdateMyPhoneState extends State<UpdateMyPhone> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image.asset(
-              //   'assets/images/otp.png',
-              //   width: 150,
-              //   height: 150,
-              // ),
+
               Image(image: NetworkImage("https://thumbs.dreamstime.com/b/otp-code-one-time-unlock-password-illustration-otp-code-one-time-unlock-password-illustration-261562501.jpg")),
 
               SizedBox(

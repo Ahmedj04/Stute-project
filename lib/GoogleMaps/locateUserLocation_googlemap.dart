@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
-
 class LocateUserLocation_Google_maps_Screen extends StatefulWidget {
 
   var coordinatesid;
@@ -43,30 +41,6 @@ class _LocateUserLocation_Google_maps_ScreenState extends State<LocateUserLocati
       })
     });
   }
-  
-
-  // LatLng currentLocation = LatLng(latitude!, 74.809890);
-
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          // target: currentLocation,
-          target: LatLng(latitude,longitude),
-          zoom: 14,
-        ),
-        onMapCreated: (controller){
-          mapController = controller;
-          // addMarker('test', currentLocation);
-          addMarker('test', LatLng(latitude, longitude));
-        },
-        markers: _markers.values.toSet(),
-      ),
-    );
-  }
   addMarker(String id, LatLng location) async{
     List<Placemark> placemark=  await placemarkFromCoordinates(latitude, longitude);
     setState(() {
@@ -76,8 +50,6 @@ class _LocateUserLocation_Google_maps_ScreenState extends State<LocateUserLocati
         markerId: MarkerId(id),
         position: location,
         infoWindow: InfoWindow(
-            // title: 'Title of the  place',
-            // snippet: 'Some description of the place',
             title: 'Their location',
             snippet: address
         )
@@ -88,4 +60,22 @@ class _LocateUserLocation_Google_maps_ScreenState extends State<LocateUserLocati
 
     });
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: LatLng(latitude,longitude),
+          zoom: 14,
+        ),
+        onMapCreated: (controller){
+          mapController = controller;
+          addMarker('test', LatLng(latitude, longitude));
+        },
+        markers: _markers.values.toSet(),
+      ),
+    );
+  }
+
 }

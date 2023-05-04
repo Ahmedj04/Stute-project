@@ -7,7 +7,7 @@ import 'Phone_verification/Register_phoneNumber/verify.dart';
 import 'first_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -24,12 +24,11 @@ class MyApp extends StatelessWidget {
       title: 'STUTE',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        appBarTheme:AppBarTheme(
-            elevation: 1,
-            color: Colors.white,
+        appBarTheme: AppBarTheme(
+          elevation: 1,
+          color: Colors.white,
         ),
-        textTheme: TextTheme(
-        ),
+        textTheme: TextTheme(),
       ),
       routes: {
         'phone': (context) => MyPhone(),
@@ -37,25 +36,23 @@ class MyApp extends StatelessWidget {
         'Homepage': (context) => HomePage(),
       },
       home: StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder:(context,snapshot){
-            if(snapshot.connectionState==ConnectionState.active){
-              User? user= snapshot.data;
-              if(user==null){
-                return FirstScreen();
-              }
-              return HomePage();
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            User? user = snapshot.data;
+            if (user == null) {
+              return FirstScreen();
             }
-            else{
-              return Scaffold(
-                body: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              );
-            }
+            return HomePage();
+          } else {
+            return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
           }
+        },
       ),
     );
   }
 }
-

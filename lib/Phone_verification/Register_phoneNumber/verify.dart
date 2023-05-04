@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,9 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:online_tutor_app/Phone_verification/Register_phoneNumber/phone.dart';
-
-import '../../Homepage.dart';
-
 
 class MyVerify extends StatefulWidget {
 
@@ -56,11 +52,7 @@ class _MyVerifyState extends State<MyVerify> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image.asset(
-              //   'assets/images/otp.png',
-              //   width: 150,
-              //   height: 150,
-              // ),
+
               Image(image: NetworkImage("https://thumbs.dreamstime.com/b/otp-code-one-time-unlock-password-illustration-otp-code-one-time-unlock-password-illustration-261562501.jpg")),
 
               SizedBox(
@@ -83,14 +75,7 @@ class _MyVerifyState extends State<MyVerify> {
               SizedBox(
                 height: 30,
               ),
-               // Pinput(
-               //    length: 6,
-               //    // defaultPinTheme: defaultPinTheme,
-               //    // focusedPinTheme: focusedPinTheme,
-               //    // submittedPinTheme: submittedPinTheme,
-               //    showCursor: true,
-               //    // onCompleted: (pin) => print(pin),
-               //  ),
+
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -262,11 +247,8 @@ class _MyVerifyState extends State<MyVerify> {
                         ),
                       ),
                     ),
-
-
                   ],
                 ),
-
               ),
 
               SizedBox(
@@ -287,7 +269,7 @@ class _MyVerifyState extends State<MyVerify> {
                       try{
 
                         PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: MyPhone.verify, smsCode: code1+code2+code3+code4+code5+code6);
-                      // PhoneAuthProvider.credential(verificationId: MyPhone.verify, smsCode: code1+code2+code3+code4+code5+code6);
+
                         // Sign the user in (or link) with the credential
                         // await auth.signInWithCredential(credential);
 
@@ -299,7 +281,7 @@ class _MyVerifyState extends State<MyVerify> {
                         //print('update hona chahiye authentication mae');
 
                        await auth.currentUser!.linkWithCredential(credential).then((user) {
-                          print(auth.currentUser!.uid+"   link ke baaadd");
+                         // print(auth.currentUser!.uid+"   link ke baaadd");
                           Timer(Duration(seconds: 2), () {
                             EasyLoading.showSuccess("Phone number confirmed successfully");
                             print('my phone number confirmed');
@@ -309,29 +291,13 @@ class _MyVerifyState extends State<MyVerify> {
                                 });
 
                             Navigator.pushNamedAndRemoveUntil(context, 'Homepage', (route) => false);
-                            // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>HomePage()));
                           });
                         }).catchError((error) {
                           print(error.toString());
                         });
-
-                        // Timer(Duration(seconds: 2), () {
-                        //   EasyLoading.showSuccess("Phone number confirmed successfully");
-                        //   print('my phone number confirmed');
-                        //   FirebaseFirestore.instance.collection('Users').doc(user!.uid).update(
-                        //       {
-                        //         'Phone Number':MyPhone.phoneno
-                        //       });
-                        //
-                        //   Navigator.pushNamedAndRemoveUntil(context, 'Homepage', (route) => false);
-                        //   // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>HomePage()));
-                        // });
-
-
                       }
                       catch(e){
                         print('wrong OTP');
-                        print(e.toString());
                         // EasyLoading.showError('Wrong Otp');
                         EasyLoading.showError(e.toString());
                       }
@@ -348,8 +314,7 @@ class _MyVerifyState extends State<MyVerify> {
                           'phone',
                               (route) => false,
                         );
-                        // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                        //     MyPhone()), (Route<dynamic> route) => false);
+
                       },
                       child: Text(
                         "Edit Phone Number ?",

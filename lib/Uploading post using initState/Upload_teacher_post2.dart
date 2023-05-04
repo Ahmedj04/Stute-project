@@ -1,11 +1,8 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:online_tutor_app/GoogleMaps/Custom_GoogleMAP.dart';
 import 'package:online_tutor_app/GoogleMaps/setLocation.dart';
-
 import '../firebase_services.dart';
 
 class Upload_teacher_postscreen2 extends StatefulWidget {
@@ -35,7 +32,6 @@ class _Upload_teacher_postscreen2State extends State<Upload_teacher_postscreen2>
   final phonenumbercontroller=TextEditingController();
   final parentuidcontroller=TextEditingController();
 
-  // bool disabled=false;
   bool uploadedBtnDisabled=false;
 
 
@@ -43,9 +39,6 @@ class _Upload_teacher_postscreen2State extends State<Upload_teacher_postscreen2>
   var longitude="";
 
   late String temp;
-
-  // String? latitude;
-  // String? longitude;
 
   var db = FirebaseFirestore.instance;
 
@@ -172,9 +165,6 @@ class _Upload_teacher_postscreen2State extends State<Upload_teacher_postscreen2>
                           if (value!.isEmpty) {
                             return 'You must add Description to the Post';
                           }
-                          // else if(value.length<2){
-                          //   return "Username should atleast be of 5 characters";
-                          // }
                           setState(() {
                             descriptioncontroller.text=value;
                           });
@@ -192,30 +182,6 @@ class _Upload_teacher_postscreen2State extends State<Upload_teacher_postscreen2>
                       ),
 
                       SizedBox(height: 40,),
-                      // TextFormField(
-                      //   enabled: true,
-                      //   // validator: (value) {
-                      //   //   if (value!.isEmpty) {
-                      //   //     return 'You must add Price to the Post';
-                      //   //   }
-                      //   //   // else if(value.length<2){
-                      //   //   //   return "Username should atleast be of 5 characters";
-                      //   //   // }
-                      //   //   setState(() {
-                      //   //     pricecontroller.text=value;
-                      //   //   });
-                      //   //   return null;
-                      //   // },
-                      //   controller: pricecontroller,
-                      //   keyboardType: TextInputType.multiline,
-                      //   textInputAction: TextInputAction.newline,
-                      //   maxLines: null,
-                      //   style: const TextStyle(fontSize: 13.5),
-                      //   decoration: const InputDecoration(
-                      //     label: Text('Price',style:TextStyle(color:Colors.grey)),
-                      //     hintStyle: TextStyle(color:Colors.grey , fontSize: 13),
-                      //   ),
-                      // ),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -346,68 +312,6 @@ class _Upload_teacher_postscreen2State extends State<Upload_teacher_postscreen2>
                           ),
                         ],
                       ),
-                      // SizedBox(height: 40,),
-                      // TextFormField(
-                      //   enabled: true,
-                      //   // validator: (value) {
-                      //   //   if (value!.isEmpty) {
-                      //   //     return 'You must add Price to the Post';
-                      //   //   }
-                      //   //   // else if(value.length<2){
-                      //   //   //   return "Username should atleast be of 5 characters";
-                      //   //   // }
-                      //   //   setState(() {
-                      //   //     pricecontroller.text=value;
-                      //   //   });
-                      //   //   return null;
-                      //   // },
-                      //   controller: locationcontroller,
-                      //   keyboardType: TextInputType.multiline,
-                      //   textInputAction: TextInputAction.newline,
-                      //   maxLines: null,
-                      //   style: const TextStyle(fontSize: 13.5),
-                      //   decoration: const InputDecoration(
-                      //     label: Text('Current Address Details',style:TextStyle(color:Colors.grey)),
-                      //     hintStyle: TextStyle(color:Colors.grey , fontSize: 13),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   height: 40,
-                      // ),
-
-                      // InkWell(
-                      //   onTap: disabled ?null : (){
-                      //     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CustomGoogleMap()));
-                      //     setState(() {
-                      //       disabled=true;
-                      //     });
-                      //   },
-                      //   child: TextFormField(
-                      //     enabled: false,
-                      //     // initialValue: 'set location',
-                      //     // validator: (value) {
-                      //     //   if (value!.isEmpty) {
-                      //     //     return 'You must add Price to the Post';
-                      //     //   }
-                      //     //   // else if(value.length<2){
-                      //     //   //   return "Username should atleast be of 5 characters";
-                      //     //   // }
-                      //     //   setState(() {
-                      //     //     pricecontroller.text=value;
-                      //     //   });
-                      //     //   return null;
-                      //     // },
-                      //     controller: location2controller,
-                      //     keyboardType: TextInputType.multiline,
-                      //     textInputAction: TextInputAction.newline,
-                      //     maxLines: null,
-                      //     style: const TextStyle(fontSize: 13.5),
-                      //     decoration: const InputDecoration(
-                      //       label: Text('Set your curent location',style:TextStyle(color:Colors.grey)),
-                      //       hintStyle: TextStyle(color:Colors.grey , fontSize: 13),
-                      //     ),
-                      //   ),
-                      // ),
 
                     ],
                   ),

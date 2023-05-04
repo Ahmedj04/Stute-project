@@ -1,15 +1,9 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:locally/locally.dart';
-import 'package:online_tutor_app/GoogleMaps/Custom_GoogleMAP.dart';
-import 'package:online_tutor_app/GoogleMaps/setLocation.dart';
-import 'package:online_tutor_app/Homepage.dart';
 import 'package:online_tutor_app/dummyscreens/HomeScreen.dart';
-
 import '../firebase_services.dart';
 
 class Upload_Event_Screen extends StatefulWidget {
@@ -31,25 +25,18 @@ class _Upload_Event_ScreenState extends State<Upload_Event_Screen>  {
   FirebaseServices services= FirebaseServices();
   final formkey=GlobalKey<FormState>();
   bool isloading=false;
-  String? _chosenValue;
-  String? _chosenValue2;
-  String? _chosenValue3;
+
 
   final usernamecontroller=TextEditingController();
   final phonenumbercontroller=TextEditingController();
   final parentuidcontroller=TextEditingController();
 
-  // bool disabled=false;
   bool uploadedBtnDisabled=false;
-
 
   var latitude="";
   var longitude="";
 
   late String temp;
-
-  // String? latitude;
-  // String? longitude;
 
   var db = FirebaseFirestore.instance;
 
@@ -118,25 +105,17 @@ class _Upload_Event_ScreenState extends State<Upload_Event_Screen>  {
                   titlecontroller.text,
                   descriptioncontroller.text,
                   parentuidcontroller.text,
-                  // phonenumbercontroller.text,
-                  // addresscontroller.text,
-                  // latitude,
-                  // longitude,
+
                 ).whenComplete(() =>
                 {
                   Timer(Duration(seconds: 1), () {
                     ScaffoldMessenger.of(context).showSnackBar(EventPosted);
-                    // locally.show(title: titlecontroller, message: descriptioncontroller);
                     Navigator.pop(context);
-                    // print(temp.toString()+" mae upload screeen mae hunnnnnnnnn");
-                    // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetLocation(currentPostid: temp.toString(),)));
                   }),
                 });
                 locally.show(title: titlecontroller.text, message: descriptioncontroller.text ,);
 
             }
-
-
             },
             icon: isloading ? SizedBox( height: 15,width: 15, child: CircularProgressIndicator(color:Colors.blue, strokeWidth: 2.5,)):Icon(Icons.check , color:Colors.blue),
           )
@@ -160,9 +139,6 @@ class _Upload_Event_ScreenState extends State<Upload_Event_Screen>  {
                           if (value!.isEmpty) {
                             return 'You must add Title to the Event';
                           }
-                          // else if(value.length<2){
-                          //   return "Username should atleast be of 5 characters";
-                          // }
                           setState(() {
                             titlecontroller.text=value;
                           });
@@ -185,9 +161,7 @@ class _Upload_Event_ScreenState extends State<Upload_Event_Screen>  {
                           if (value!.isEmpty) {
                             return 'You must add Description to the Event';
                           }
-                          // else if(value.length<2){
-                          //   return "Username should atleast be of 5 characters";
-                          // }
+
                           setState(() {
                             descriptioncontroller.text=value;
                           });
@@ -203,17 +177,11 @@ class _Upload_Event_ScreenState extends State<Upload_Event_Screen>  {
                           hintStyle: TextStyle(color:Colors.grey , fontSize: 13),
                         ),
                       ),
-
-                      // SizedBox(height: 40,),
-
-
                     ],
                   ),
                 ),
               ),
-
-
-            )
+            ),
           ],
         ),
       ),

@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:online_tutor_app/LoginScreen.dart';
-import 'package:online_tutor_app/Phone_verification/Register_phoneNumber/verify.dart';
 
 class MyPhone extends StatefulWidget {
   const MyPhone({Key? key}) : super(key: key);
@@ -18,14 +16,8 @@ class MyPhone extends StatefulWidget {
 
 class _MyPhoneState extends State<MyPhone> {
 
-  // TextEditingController countryCode = TextEditingController();
-
   @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   countryCode.text = "+91";
-  //   super.initState();
-  // }
+
   void initState() {
     // TODO: implement initState
     MyPhone.countryCode.text = "+91";
@@ -39,16 +31,6 @@ class _MyPhoneState extends State<MyPhone> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        // leading: IconButton(
-        //   onPressed: () {
-        //     Navigator.pop(context);
-        //     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen(),
-        //   },
-        //   icon: Icon(
-        //     Icons.arrow_back_ios_rounded,
-        //     color: Colors.black,
-        //   ),
-        // ),
         elevation: 0,
       ),
       body: Container(
@@ -58,11 +40,7 @@ class _MyPhoneState extends State<MyPhone> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image.asset(
-              //   'assets/images/otp.png',
-              //   width: 150,
-              //   height: 150,
-              // ),
+
               Image(image: NetworkImage("https://thumbs.dreamstime.com/b/otp-code-one-time-unlock-password-illustration-otp-code-one-time-unlock-password-illustration-261562501.jpg")),
 
               SizedBox(
@@ -127,7 +105,7 @@ class _MyPhoneState extends State<MyPhone> {
                             border: InputBorder.none,
                             hintText: "Phone",
                           ),
-                        ))
+                        ),),
                   ],
                 ),
               ),
@@ -162,9 +140,6 @@ class _MyPhoneState extends State<MyPhone> {
                                 EasyLoading.showSuccess("OTP successfully sent to your mobile number");
                                 MyPhone.verify=verificationId;
                                 Navigator.pushNamed(context, 'verify');
-                                // print(countryCode);
-                                // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyVerify()));
-
                               },
                               codeAutoRetrievalTimeout: (String verificationId) {},
                             );

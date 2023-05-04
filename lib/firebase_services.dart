@@ -1,10 +1,8 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
 import 'LoginScreen.dart';
 
 
@@ -43,10 +41,8 @@ class FirebaseServices{
 
   Future<void> logout(context) async{
     FirebaseAuth.instance.signOut();
-    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Dynamic_login()));
     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
         LoginScreen()), (Route<dynamic> route) => false);
-    // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Dynamic_login()));
 
   }
 

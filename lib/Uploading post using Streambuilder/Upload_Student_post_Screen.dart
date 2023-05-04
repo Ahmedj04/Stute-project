@@ -131,9 +131,7 @@ class _Upload_Student_Post_ScreenState extends State<Upload_Student_Post_Screen>
                           if (value!.isEmpty) {
                             return 'You must add Description to the Post';
                           }
-                          // else if(value.length<2){
-                          //   return "Username should atleast be of 5 characters";
-                          // }
+
                           setState(() {
                             descriptioncontroller.text=value;
                           });
@@ -177,18 +175,6 @@ class _Upload_Student_Post_ScreenState extends State<Upload_Student_Post_Screen>
                       SizedBox(height: 40,),
                       TextFormField(
                         enabled: true,
-                        // validator: (value) {
-                        //   if (value!.isEmpty) {
-                        //     return 'You must add Price to the Post';
-                        //   }
-                        //   // else if(value.length<2){
-                        //   //   return "Username should atleast be of 5 characters";
-                        //   // }
-                        //   setState(() {
-                        //     pricecontroller.text=value;
-                        //   });
-                        //   return null;
-                        // },
                         controller: locationcontroller,
                         keyboardType: TextInputType.multiline,
                         textInputAction: TextInputAction.newline,

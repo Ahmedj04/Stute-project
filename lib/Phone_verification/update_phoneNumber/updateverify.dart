@@ -1,15 +1,10 @@
-// import 'dart:async';
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:online_tutor_app/Phone_verification/Register_phoneNumber/phone.dart';
 import 'package:online_tutor_app/Phone_verification/update_phoneNumber/updatephone.dart';
-
-
 
 class UpdateMyVerify extends StatefulWidget {
 
@@ -58,11 +53,7 @@ class _UpdateMyVerifyState extends State<UpdateMyVerify> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image.asset(
-              //   'assets/images/otp.png',
-              //   width: 150,
-              //   height: 150,
-              // ),
+
               Image(image: NetworkImage("https://thumbs.dreamstime.com/b/otp-code-one-time-unlock-password-illustration-otp-code-one-time-unlock-password-illustration-261562501.jpg")),
 
               SizedBox(
@@ -85,14 +76,7 @@ class _UpdateMyVerifyState extends State<UpdateMyVerify> {
               SizedBox(
                 height: 30,
               ),
-              // Pinput(
-              //    length: 6,
-              //    // defaultPinTheme: defaultPinTheme,
-              //    // focusedPinTheme: focusedPinTheme,
-              //    // submittedPinTheme: submittedPinTheme,
-              //    showCursor: true,
-              //    // onCompleted: (pin) => print(pin),
-              //  ),
+
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -264,11 +248,8 @@ class _UpdateMyVerifyState extends State<UpdateMyVerify> {
                         ),
                       ),
                     ),
-
-
                   ],
                 ),
-
               ),
 
               SizedBox(
@@ -281,7 +262,7 @@ class _UpdateMyVerifyState extends State<UpdateMyVerify> {
                     style: ElevatedButton.styleFrom(
                         primary: Colors.deepPurple[400],
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                            borderRadius: BorderRadius.circular(10),),),
 
                     onPressed: () async{
 
@@ -300,22 +281,6 @@ class _UpdateMyVerifyState extends State<UpdateMyVerify> {
                         await auth.currentUser!.updatePhoneNumber(credential);
                         print('update hona chahiye authentication mae');
 
-                        // await auth.currentUser!.updatePhoneNumber(credential).then((user) {
-                        //   print(auth.currentUser!.uid+"   link ke baaadd");
-                        //   Timer(Duration(seconds: 2), () {
-                        //     EasyLoading.showSuccess("Phone number confirmed successfully");
-                        //     print('my phone number confirmed');
-                        //     FirebaseFirestore.instance.collection('Users').doc(auth.currentUser!.uid).update(
-                        //         {
-                        //           'Phone Number':UpdateMyPhone.phoneno
-                        //         });
-                        //
-                        //     Navigator.pushNamedAndRemoveUntil(context, 'Homepage', (route) => false);
-                        //     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>HomePage()));
-                        //   });
-                        // }).catchError((error) {
-                        //   print(error.toString());
-                        // });
                         Timer(Duration(seconds: 2), () {
                           EasyLoading.showSuccess("Phone number confirmed successfully");
                           print('my phone number confirmed');

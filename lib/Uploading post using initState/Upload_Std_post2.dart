@@ -211,32 +211,6 @@ class _Upload_Student_postscreen2State extends State<Upload_Student_postscreen2>
                           hintStyle: TextStyle(color:Colors.grey , fontSize: 13),
                         ),
                       ),
-
-                      // SizedBox(height: 40,),
-                      // TextFormField(
-                      //   enabled: true,
-                      //   // validator: (value) {
-                      //   //   if (value!.isEmpty) {
-                      //   //     return 'You must add Price to the Post';
-                      //   //   }
-                      //   //   // else if(value.length<2){
-                      //   //   //   return "Username should atleast be of 5 characters";
-                      //   //   // }
-                      //   //   setState(() {
-                      //   //     pricecontroller.text=value;
-                      //   //   });
-                      //   //   return null;
-                      //   // },
-                      //   controller: locationcontroller,
-                      //   keyboardType: TextInputType.multiline,
-                      //   textInputAction: TextInputAction.newline,
-                      //   maxLines: null,
-                      //   style: const TextStyle(fontSize: 13.5),
-                      //   decoration: const InputDecoration(
-                      //     label: Text('Current Address Details',style:TextStyle(color:Colors.grey)),
-                      //     hintStyle: TextStyle(color:Colors.grey , fontSize: 13),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),

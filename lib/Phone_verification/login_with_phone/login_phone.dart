@@ -17,14 +17,8 @@ class Login_with_MyPhone extends StatefulWidget {
 
 class _Login_with_MyPhoneState extends State<Login_with_MyPhone> {
 
-  // TextEditingController countryCode = TextEditingController();
-
   @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   countryCode.text = "+91";
-  //   super.initState();
-  // }
+
   void initState() {
     // TODO: implement initState
     Login_with_MyPhone.countryCode.text = "+91";
@@ -56,11 +50,7 @@ class _Login_with_MyPhoneState extends State<Login_with_MyPhone> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image.asset(
-              //   'assets/images/otp.png',
-              //   width: 150,
-              //   height: 150,
-              // ),
+
               Image(image: NetworkImage("https://thumbs.dreamstime.com/b/otp-code-one-time-unlock-password-illustration-otp-code-one-time-unlock-password-illustration-261562501.jpg")),
 
               SizedBox(
@@ -154,13 +144,10 @@ class _Login_with_MyPhoneState extends State<Login_with_MyPhone> {
                             },
                             verificationFailed: (FirebaseAuthException e) {
                               EasyLoading.showError(e.toString());
-                              // EasyLoading.showError('Verification failed!\n The provided Phone number is Invalid');
                             },
                             codeSent: (String verificationId, int? resendToken) {
                               EasyLoading.showSuccess("OTP successfully sent to your mobile number");
                               Login_with_MyPhone.verify=verificationId;
-                              // Navigator.pushNamed(context, 'verify');
-                              // print(countryCode);
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Login_with_MyVerify()));
 
                             },
@@ -174,8 +161,6 @@ class _Login_with_MyPhoneState extends State<Login_with_MyPhone> {
                       else{
                         EasyLoading.showError('Number invalid');
                       }
-
-
                     },
                     child: Text("Send the code")),
               )

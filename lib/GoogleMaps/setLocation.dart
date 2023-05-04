@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../Homepage.dart';
 import 'Custom_GoogleMAP.dart';
 
@@ -39,11 +38,6 @@ class _SetLocationState extends State<SetLocation>{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image.asset(
-              //   'assets/images/otp.png',
-              //   width: 150,
-              //   height: 150,
-              // ),
               Image(image: NetworkImage("https://cdn-icons-png.flaticon.com/512/439/439902.png")),
 
               SizedBox(

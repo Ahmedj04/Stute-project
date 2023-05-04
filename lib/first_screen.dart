@@ -24,8 +24,6 @@ class _FirstScreenState extends State<FirstScreen> {
         automaticallyImplyLeading: false,
       ),
       body: ListView(
-        // mainAxisAlignment: MainAxisAlignment.end,
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipPath(
             clipper: WaveClipperOne(),
@@ -39,7 +37,6 @@ class _FirstScreenState extends State<FirstScreen> {
                   children: [
                     Row(
                       children: [
-                        // Text("Find \nTutor Online",style: TextStyle(fontSize: 32 , fontWeight: FontWeight.w500,color: Colors.white),),
                         Text("STUTE",style: TextStyle(fontFamily: 'times new roman',
                             fontSize: 35 , fontWeight: FontWeight.w500,color: Colors.white),),
                       ],
@@ -100,7 +97,6 @@ class _FirstScreenState extends State<FirstScreen> {
             },
               style: ButtonStyle(
                 overlayColor: MaterialStateProperty.all(Colors.grey.shade200),
-                // padding: MaterialStateProperty.all(const EdgeInsets.only(left:130, right:130,top:20,bottom: 20)),
                 backgroundColor: MaterialStateProperty.all(Colors.white),
                 elevation: MaterialStateProperty.all(0),
                 shape: MaterialStateProperty.all(
@@ -123,12 +119,9 @@ class _FirstScreenState extends State<FirstScreen> {
           SizedBox(height: 20,),
 
           Padding(
-            // padding: const EdgeInsets.only(top:8.0, bottom: 8,left: 15,right: 15),
             padding: EdgeInsets.only(top:MediaQuery.of(context).size.height*.002, bottom: MediaQuery.of(context).size.height*.010,left: MediaQuery.of(context).size.height*.02,right: MediaQuery.of(context).size.height*.02),
             child: ElevatedButton(onPressed: (){
-              // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignUpScreen()));
               Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child:SignUpScreen()));
-              // Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child:MyPhone()));
             },
               style: ButtonStyle(
                 // overlayColor: MaterialStateProperty.all(Colors.grey.shade200),
@@ -151,30 +144,6 @@ class _FirstScreenState extends State<FirstScreen> {
               child: Text('SignUp',style: TextStyle(color: Colors.white , fontSize: 16),),
             ),
           ),
-
-          // Padding(
-          //   padding: const EdgeInsets.only(top:20.0),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //     children: [
-          //       Container(
-          //           width: 150,
-          //           child: Divider(height: 1,thickness: 1,)),
-          //       Text('OR', style: TextStyle(fontWeight: FontWeight.bold),),
-          //       Container(
-          //           width: 160,
-          //           child: Divider(height: 1,thickness: 1,)),
-          //     ],
-          //   ),
-          // ),
-          //
-          // Padding(
-          //     padding: const EdgeInsets.only(top:15.0),
-          //     child: InkWell(
-          //         onTap:(){},
-          //         child: Text("Admin login?",style: TextStyle(fontSize: 13,color: Colors.deepPurple[400]),))
-          //
-          // ),
 
         ],
       ),

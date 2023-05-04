@@ -1,15 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart' as geo;
 import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:location/location.dart';
 import 'package:page_transition/page_transition.dart';
-
 import '../Postdetails_screen.dart';
-
 
 class NearbyLocation extends StatefulWidget {
   const NearbyLocation({Key? key}) : super(key: key);
@@ -213,7 +209,6 @@ class _NearbyLocationState extends State<NearbyLocation> {
                 }
               }
           );
-
 
         });
   }

@@ -67,11 +67,6 @@ class _Event_ScreenState extends State<Event_Screen> with SingleTickerProviderSt
                       String,
                       dynamic>;
                   return Container(
-                    // decoration: BoxDecoration(
-                    //      //color: Colors.deepPurple[400],
-                    //     borderRadius: BorderRadius.circular(10),
-                    //     shape: BoxShape.rectangle
-                    // ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -116,26 +111,12 @@ class _Event_ScreenState extends State<Event_Screen> with SingleTickerProviderSt
 
                           Divider()
 
-                          // Padding(
-                          //   padding: const EdgeInsets.all(8.0),
-                          //   child: Center(child: Text("Tap for details...",
-                          //     style: TextStyle(fontSize: 10,
-                          //         fontWeight: FontWeight.w300),)),
-                          // ),
-
                         ],
                       )
                   );
                 }).toList(),
 
               );
-
-
-
-
-
-
-
           }),
     );
   }
